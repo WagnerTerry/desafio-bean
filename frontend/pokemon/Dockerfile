@@ -13,3 +13,22 @@ COPY . .
 
 # build projeto
 RUN npm run build
+
+
+# Iniciando segundo passo
+FROM node:18-alpine as PRODUCTION_IMAGE
+WORKDIR /app/react-app
+
+# copiando dist
+COPY --from=BUILD_IMAGE /app/react-app/dist/ /app/react-app/dist/
+EXPOSE 8080
+
+# copiando package.json
+COPY package.json .
+COPY vite.config.ts .
+
+# instalando typescript
+RUN npm install typescript
+
+EXPOSE 8080
+CMD [ "npm", "run", "preview" ]
