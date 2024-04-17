@@ -1,0 +1,22 @@
+.navbar {
+    text-align: center;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .navbar li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .navbar button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: lightblue;
+    border: none;
+    cursor: pointer;
+  }
+  

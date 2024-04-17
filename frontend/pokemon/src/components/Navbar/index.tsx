@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PokemonList } from "../../views/PokemonList";
 import { Team } from "../../views/Team";
-
+import './style.css'
 interface NavbarProps {
     page: string;
 }
@@ -25,11 +25,15 @@ export function Navbar({ page }: NavbarProps) {
     };
 
     return (
-        <div>
+        <div className="navbar">
             <nav>
                 <ul>
-                    <li><button onClick={() => handleNavigation('list')}>Pokemon List</button></li>
-                    <li><button onClick={() => handleNavigation('team')}>Team</button></li>
+                    <li>
+                        <button onClick={() => handleNavigation('list')}>Pokemon List</button>
+                    </li>
+                    <li>
+                        <button onClick={() => handleNavigation('team')}>Team</button>
+                    </li>
                 </ul>
             </nav>
             {renderPage()}
