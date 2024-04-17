@@ -1,3 +1,4 @@
+# Primeira Etapa (BUILD_IMAGE):
 # imagem node
 FROM node:18-alpine as BUILD_IMAGE
 WORKDIR /app/react-app
@@ -15,7 +16,7 @@ COPY . .
 RUN npm run build
 
 
-# Iniciando segundo passo
+# Segunda Etapa (PRODUCTION_IMAGE)
 FROM node:18-alpine as PRODUCTION_IMAGE
 WORKDIR /app/react-app
 
@@ -30,5 +31,4 @@ COPY vite.config.ts .
 # instalando typescript
 RUN npm install typescript
 
-EXPOSE 8080
 CMD [ "npm", "run", "preview" ]
