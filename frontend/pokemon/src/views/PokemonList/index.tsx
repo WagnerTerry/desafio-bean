@@ -6,6 +6,7 @@ import './style.css'
 
 export function PokemonList() {
     interface IPoke {
+        id: string;
         name: string;
         sprites: {
             other: {
@@ -39,7 +40,7 @@ export function PokemonList() {
             {list.map((pokemon: IPoke, index: number) => (
                 <div className="poke-card" key={index}>
                     <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
-                    <p>{pokemon.name}</p>
+                    <p>{pokemon.name} #{pokemon.id}</p>
                     <button className="add-pokemon">Adicionar</button>
                     <button className="remove-pokemon">Remover</button>
 
