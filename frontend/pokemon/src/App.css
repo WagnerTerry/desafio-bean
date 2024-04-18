@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+html {
+    background-color: #73bec0;
+}
+
 h1 {
     text-align: center;
     margin: 40px;

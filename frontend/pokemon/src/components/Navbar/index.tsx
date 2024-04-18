@@ -29,10 +29,10 @@ export function Navbar({ page }: NavbarProps) {
             <nav>
                 <ul>
                     <li>
-                        <button onClick={() => handleNavigation('list')}>Pokemon List</button>
+                        <button onClick={() => handleNavigation('list')}>Lista de Pokémons</button>
                     </li>
                     <li>
-                        <button onClick={() => handleNavigation('team')}>Team</button>
+                        <button onClick={() => handleNavigation('team')}>Time</button>
                     </li>
                 </ul>
             </nav>

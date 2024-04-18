@@ -7,7 +7,7 @@ interface IPokemon {
 }
 export default class PokeService {
   static gottaCatchAll = async () => {
-    const { data } = await axios.get(`${BaseURL}/?limit=151`);
+    const { data } = await axios.get(`${BaseURL}/?limit=351`);
 
     const pokemonPromises = data.results.map((poke) => {
       return this.getPokemonDetails(poke);
