@@ -2,10 +2,19 @@
 import { useEffect, useState } from "react"
 import PokeService from "../../services/PokeService"
 
+import './style.css'
+
 export function PokemonList() {
-    // interface IPoke {
-    //     results: [];
-    // }
+    interface IPoke {
+        name: string;
+        sprites: {
+            other: {
+                dream_world: {
+                    front_default: string;
+                }
+            }
+        }
+    }
 
     const [list, setList] = useState<any[]>([]);
 
@@ -19,19 +28,21 @@ export function PokemonList() {
     }, [])
 
     return (
-        <>
-            <h1>Pokedex</h1>
+        <div>
+            <h1>Lista de Pokémons</h1>
 
             <div className="poke-list">
-                {list.map((pokemon, index) => (
-                    <div key={index}>
-                        <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
-                      
-                    </div>
-                ))}
+            {list.map((pokemon: IPoke, index: number) => (
+                <div className="poke-card" key={index}>
+                    <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
+                    <p>{pokemon.name}</p>
+                    <button className="add-pokemon">Adicionar</button>
+                    <button className="remove-pokemon">Remover</button>
 
-            </div>
+                </div>
+            ))}
+        </div>
 
-        </>
+        </div>
     )
 }

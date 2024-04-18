@@ -1,22 +1,41 @@
 .navbar {
-    text-align: center;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .navbar li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  .navbar button {
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: lightblue;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.navbar button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: lightblue;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar .add-pokemon,
+.navbar .remove-pokemon {
+    background-color: #4CAF50; /* Verde */
     border: none;
+    color: white;
+    padding: 4px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-  }
-  
+    border-radius: 16px;
+}
+
+.navbar .remove-pokemon {
+    background-color: #f44336; /* Vermelho */
+}
