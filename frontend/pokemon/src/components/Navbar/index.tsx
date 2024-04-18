@@ -32,7 +32,7 @@ export function Navbar({ page }: NavbarProps) {
                         <button onClick={() => handleNavigation('list')}>Lista de Pokémons</button>
                     </li>
                     <li>
-                        <button onClick={() => handleNavigation('team')}>Time</button>
+                        <button onClick={() => handleNavigation('team')}>Meu time</button>
                     </li>
                 </ul>
             </nav>
