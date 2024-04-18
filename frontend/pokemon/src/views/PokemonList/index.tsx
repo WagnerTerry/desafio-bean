@@ -17,12 +17,14 @@ export function PokemonList() {
     }
 
     const [list, setList] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const showPokemons = async () => {
             const pokemons = await PokeService.gottaCatchAll()
 
             setList(pokemons)
+            setLoading(false);
         }
         showPokemons()
     }, [])
@@ -32,6 +34,8 @@ export function PokemonList() {
             <h1>Lista de Pokémons</h1>
 
             <div className="poke-list">
+            {loading && <p>Loading...</p>}
+
             {list.map((pokemon: IPoke, index: number) => (
                 <div className="poke-card" key={index}>
                     <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
