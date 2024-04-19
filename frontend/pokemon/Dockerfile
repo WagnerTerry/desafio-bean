@@ -22,7 +22,7 @@ WORKDIR /app/react-app
 
 # copiando dist
 COPY --from=BUILD_IMAGE /app/react-app/dist/ /app/react-app/dist/
-EXPOSE 8080
+EXPOSE 8082
 
 # copiando package.json
 COPY package.json .

@@ -8,6 +8,6 @@ export default defineConfig({
   // definindo a porta , e se o host for true, o projeto fica em um endereço público
   preview: {
     host: true,
-    port: 8080,
+    port: 8082,
   },
 });
