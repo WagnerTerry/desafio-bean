@@ -68,53 +68,57 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
 
     const filteredData = data.filter((pokemon) =>
         pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+    );
 
-      return (
+    return (
         <div>
-          <h1>Lista de Pokémons</h1>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Buscar pokémon"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <div className="poke-list">
-            {filteredData.length === 0 ? (
-              <p>Nenhum Pokémon encontrado.</p>
-            ) : (
-              filteredData.map((pokemon: IPokemon, index: number) => (
-                <div className="poke-card" key={index}>
-                  <img
-                    src={pokemon.sprites.other.dream_world.front_default}
-                    alt={pokemon.name}
-                  />
-                  <p>
-                    {pokemon.name} #{pokemon.id}
-                  </p>
-                  <button
-                    className="add-pokemon"
-                    onClick={() =>
-                      handleAddPokemon(
-                        Number(pokemon.id),
-                        pokemon.name,
-                        pokemon.sprites.other.dream_world.front_default
-                      )
-                    }
-                  >
-                    Adicionar
-                  </button>
-                  <button
-                    className="remove-pokemon"
-                    onClick={() => handleRemovePokemon(Number(pokemon.id))}
-                  >
-                    Remover
-                  </button>
-                </div>
-              ))
+            <h1>Lista de Pokémons</h1>
+
+            {data.length > 0 && (
+
+                <input
+                    type="text"
+                    className="search-input"
+                    placeholder="Buscar pokémon"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
             )}
-          </div>
+            <div className="poke-list">
+                {data.length === 0 ? (
+                    <p>Carregando...</p>
+                ) : (
+                    filteredData.map((pokemon: IPokemon, index: number) => (
+                        <div className="poke-card" key={index}>
+                            <img
+                                src={pokemon.sprites.other.dream_world.front_default}
+                                alt={pokemon.name}
+                            />
+                            <p>
+                                {pokemon.name} #{pokemon.id}
+                            </p>
+                            <button
+                                className="add-pokemon"
+                                onClick={() =>
+                                    handleAddPokemon(
+                                        Number(pokemon.id),
+                                        pokemon.name,
+                                        pokemon.sprites.other.dream_world.front_default
+                                    )
+                                }
+                            >
+                                Adicionar
+                            </button>
+                            <button
+                                className="remove-pokemon"
+                                onClick={() => handleRemovePokemon(Number(pokemon.id))}
+                            >
+                                Remover
+                            </button>
+                        </div>
+                    ))
+                )}
+            </div>
         </div>
-      );
-    }
+    );
+}

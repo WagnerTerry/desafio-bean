@@ -38,7 +38,7 @@ export function Team() {
         <div>
             <h1>Meu Time</h1>
             <div className="poke-list">
-                {loading ? <p>Loading team...</p> : (
+                {loading ? <p>Carregando time...</p> : (
                     list.length === 0 ?
                         <h3>Nenhum pokémon adicionado ao time</h3>
                         :
