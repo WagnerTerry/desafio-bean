@@ -36,12 +36,10 @@ export function PokemonList() {
             name,
             image
         }
-        console.log("data", data)
         
         try {
 
             const { team } = await PokeService.pokemonTeam()
-            
             if(team.length > 4){
                 alert("O time já possui o máximo de 5 Pokémon")
                 return

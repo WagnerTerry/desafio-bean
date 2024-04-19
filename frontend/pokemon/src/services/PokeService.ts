@@ -44,4 +44,9 @@ export default class PokeService {
     const response = await axios.post(`${BaseURLHasura}/addpokemon`, data);
     return response.data;
   };
+
+  static removePokemonFromTeam = async (id: number) => {
+    const { data } = await axios.delete(`${BaseURLHasura}/myteam/${id}`);
+    return data;
+  };
 }
