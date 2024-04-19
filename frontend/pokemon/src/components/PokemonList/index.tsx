@@ -73,9 +73,7 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
     return (
         <div>
             <h1>Lista de Pokémons</h1>
-
             {data.length > 0 && (
-
                 <input
                     type="text"
                     className="search-input"
