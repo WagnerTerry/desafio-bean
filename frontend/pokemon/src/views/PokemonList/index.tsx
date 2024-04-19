@@ -38,13 +38,11 @@ export function PokemonList() {
         }
         
         try {
-
             const { team } = await PokeService.pokemonTeam()
             if(team.length > 4){
                 alert("O time já possui o máximo de 5 Pokémon")
                 return
             }
-
             const teamData = await PokeService.getPokemonById(id);
             if (!teamData || !teamData.team_by_pk) {
                 console.log("Pokémon não encontrado no time");
