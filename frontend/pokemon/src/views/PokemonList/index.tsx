@@ -30,17 +30,36 @@ export function PokemonList() {
         showPokemons()
     }, [])
 
-    // async function handleAddPokemon() {
-    //     try {
-    //         // Chame a função do serviço PokemonService para inserir o Pokémon no banco de dados
-    //         await PokemonDatabase
-    //         // await PokemonDatabase.inserirPokemon(pokemon.name, pokemon.sprites.other.dream_world.front_default);
-    //         console.log(`Pokemon ${pokemon.name} adicionado ao banco de dados.`);
-    //       } catch (error) {
-    //         console.error('Erro ao adicionar Pokémon:', error);
-    //       }
-    // } 
-
+    async function handleAddPokemon(id: number, name: string, image: string) {
+        const data = {
+            id, 
+            name,
+            image
+        }
+        console.log("data", data)
+        
+        try {
+            const teamData = await PokeService.getPokemonById(id);
+            if (!teamData || !teamData.team_by_pk) {
+                console.log("Pokémon não encontrado no time");
+            } else {
+                const { team_by_pk } = teamData;
+                if (id === team_by_pk.id) {
+                    alert("Pokémon já está adicionado ao time");
+                    return;
+                }
+            }
+    
+            if (!id || !name.trim()) {
+                alert("Erro na requisição para adicionar pokémon");
+                return;
+            }
+            await PokeService.addPokemonTeam(data);
+            alert("Pokémon adicionado ao time");
+        } catch (error) {
+            console.error('Ocorreu um erro ao adicionar pokémon:', error);
+        }
+    } 
 
     return (
         <div>
@@ -53,7 +72,7 @@ export function PokemonList() {
                 <div className="poke-card" key={index}>
                     <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
                     <p>{pokemon.name} #{pokemon.id}</p>
-                    {/* <button className="add-pokemon" onClick={() => handleAdicionarPokemon(pokemon.id, pokemon.name, pokemon.sprites.other.dream_world.front_default)}>Adicionar</button> */}
+                    <button className="add-pokemon" onClick={() => handleAddPokemon(Number(pokemon.id), pokemon.name, pokemon.sprites.other.dream_world.front_default)}>Adicionar</button>
                     <button className="remove-pokemon">Remover</button>
 
                 </div>
