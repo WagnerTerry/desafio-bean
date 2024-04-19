@@ -1,0 +1,32 @@
+.poke-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.poke-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: calc(33.33% - 10px);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #e1d88f;
+    flex: 1;
+
+}
+
+.poke-card p {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.poke-card img {
+    width: 80px;
+    height: 80px;
+}
