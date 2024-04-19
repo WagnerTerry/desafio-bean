@@ -30,6 +30,18 @@ export function PokemonList() {
         showPokemons()
     }, [])
 
+    // async function handleAddPokemon() {
+    //     try {
+    //         // Chame a função do serviço PokemonService para inserir o Pokémon no banco de dados
+    //         await PokemonDatabase
+    //         // await PokemonDatabase.inserirPokemon(pokemon.name, pokemon.sprites.other.dream_world.front_default);
+    //         console.log(`Pokemon ${pokemon.name} adicionado ao banco de dados.`);
+    //       } catch (error) {
+    //         console.error('Erro ao adicionar Pokémon:', error);
+    //       }
+    // } 
+
+
     return (
         <div>
             <h1>Lista de Pokémons</h1>
@@ -41,7 +53,7 @@ export function PokemonList() {
                 <div className="poke-card" key={index}>
                     <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
                     <p>{pokemon.name} #{pokemon.id}</p>
-                    <button className="add-pokemon">Adicionar</button>
+                    {/* <button className="add-pokemon" onClick={() => handleAdicionarPokemon(pokemon.id, pokemon.name, pokemon.sprites.other.dream_world.front_default)}>Adicionar</button> */}
                     <button className="remove-pokemon">Remover</button>
 
                 </div>

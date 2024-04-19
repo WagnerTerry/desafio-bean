@@ -5,6 +5,10 @@
 ### Dependências
 - npm create vite@latest
 - npm install axios
+- npm install pg
+- npm i --save-dev @types/pg
+- npm install graphql-request
+
 
 ### comandos docker
 Build da imagem com a tag/nome (vite-react-app)
