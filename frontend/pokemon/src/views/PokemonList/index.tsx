@@ -63,9 +63,19 @@ export function PokemonList() {
             await PokeService.addPokemonTeam(data);
             alert("Pokémon adicionado ao time");
         } catch (error) {
-            console.error('Ocorreu um erro ao adicionar pokémon:', error);
+            console.log('Ocorreu um erro ao adicionar pokémon:', error);
         }
     } 
+
+    async function handleRemovePokemon(id: number){
+        try {
+            await PokeService.removePokemonFromTeam(id)
+            alert('Pokémon removido do time')
+        } catch(error){
+            console.log('Ocorreu um erro ao remover pokémon:', error);
+
+        }
+    }
 
     return (
         <div>
@@ -79,7 +89,7 @@ export function PokemonList() {
                     <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
                     <p>{pokemon.name} #{pokemon.id}</p>
                     <button className="add-pokemon" onClick={() => handleAddPokemon(Number(pokemon.id), pokemon.name, pokemon.sprites.other.dream_world.front_default)}>Adicionar</button>
-                    <button className="remove-pokemon">Remover</button>
+                    <button className="remove-pokemon" onClick={() => handleRemovePokemon(Number(pokemon.id))}>Remover</button>
 
                 </div>
             ))}
