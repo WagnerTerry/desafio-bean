@@ -42,7 +42,12 @@ export function Team() {
             <div className="poke-list">
             {loading && <p>Loading...</p>}
 
-            {list.map((pokemon: IPoke, index: number) => (
+            {list.length === 0 ?
+            
+            <h3>Nenhum pokémon adicionado ao time</h3>
+           
+            :
+            list.map((pokemon: IPoke, index: number) => (
                 <div className="poke-card" key={index}>
                     <img src={pokemon.image} alt={pokemon.name} />
                     <p>{pokemon.name} #{pokemon.id}</p>
