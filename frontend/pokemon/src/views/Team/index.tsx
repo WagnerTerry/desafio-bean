@@ -34,18 +34,15 @@ export function Team() {
         }
     }
 
-
     return (
         <div>
             <h1>Meu Time</h1>
-
             <div className="poke-list">
             {loading && <p>Loading...</p>}
 
             {list.length === 0 ?
             
             <h3>Nenhum pokémon adicionado ao time</h3>
-           
             :
             list.map((pokemon: IPoke, index: number) => (
                 <div className="poke-card" key={index}>
@@ -55,8 +52,7 @@ export function Team() {
 
                 </div>
             ))}
-        </div>
-
+           </div>
         </div>
     )
 }
