@@ -7,7 +7,7 @@ interface IPokemon {
   url: string;
 }
 
-interface ITeamPokemon {
+export interface ITeamPokemon {
   id: number;
   name: string;
   image?: string;
@@ -32,6 +32,11 @@ export default class PokeService {
 
   static pokemonTeam = async () => {
     const { data } = await axios.get(`${BaseURLHasura}/myteam`);
+    return data;
+  };
+
+  static getPokemonById = async (id: number) => {
+    const { data } = await axios.get(`${BaseURLHasura}/myteam/${id}`);
     return data;
   };
 
