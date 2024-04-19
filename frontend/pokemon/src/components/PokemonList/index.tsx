@@ -56,16 +56,6 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
         }
     }
 
-    async function handleRemovePokemon(id: number) {
-        try {
-            await PokeService.removePokemonFromTeam(id)
-            alert('Pokémon removido do time')
-        } catch (error) {
-            console.log('Ocorreu um erro ao remover pokémon:', error);
-
-        }
-    }
-
     const filteredData = data.filter((pokemon) =>
         pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -107,12 +97,7 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
                             >
                                 Adicionar
                             </button>
-                            <button
-                                className="remove-pokemon"
-                                onClick={() => handleRemovePokemon(Number(pokemon.id))}
-                            >
-                                Remover
-                            </button>
+                            
                         </div>
                     )) : <p>Nenhum pokémon encontrado</p>
                 )}
