@@ -23,12 +23,12 @@ export function Team() {
         showPokemons()
     }, [])
 
-    async function handleRemovePokemon(id: number){
+    async function handleRemovePokemon(id: number) {
         try {
             await PokeService.removePokemonFromTeam(id)
             setList(list.filter((poke) => poke.id !== id))
             alert('Pokémon removido do time')
-        } catch(error){
+        } catch (error) {
             console.log('Ocorreu um erro ao remover pokémon:', error);
 
         }
@@ -38,21 +38,19 @@ export function Team() {
         <div>
             <h1>Meu Time</h1>
             <div className="poke-list">
-            {loading && <p>Loading...</p>}
-
-            {list.length === 0 ?
-            
-            <h3>Nenhum pokémon adicionado ao time</h3>
-            :
-            list.map((pokemon: IPoke, index: number) => (
-                <div className="poke-card" key={index}>
-                    <img src={pokemon.image} alt={pokemon.name} />
-                    <p>{pokemon.name} #{pokemon.id}</p>
-                    <button className="remove-pokemon" onClick={() => handleRemovePokemon(Number(pokemon.id))}>Remover</button>
-
-                </div>
-            ))}
-           </div>
+                {loading ? <p>Loading team...</p> : (
+                    list.length === 0 ?
+                        <h3>Nenhum pokémon adicionado ao time</h3>
+                        :
+                        list.map((pokemon: IPoke, index: number) => (
+                            <div className="poke-card" key={index}>
+                                <img src={pokemon.image} alt={pokemon.name} />
+                                <p>{pokemon.name} #{pokemon.id}</p>
+                                <button className="remove-pokemon" onClick={() => handleRemovePokemon(Number(pokemon.id))}>Remover</button>
+                            </div>
+                        ))
+                )}
+            </div>
         </div>
     )
 }

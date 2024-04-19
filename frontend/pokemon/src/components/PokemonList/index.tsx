@@ -1,4 +1,3 @@
-import  { useEffect, useState } from "react";
 import PokeService from "../../services/PokeService";
 
 interface IPokemon {
@@ -18,22 +17,17 @@ interface PokemonListProps {
 }
 
 export function PokemonList({ data }: PokemonListProps): JSX.Element {
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        setLoading(false);
-    }, []);
 
     async function handleAddPokemon(id: number, name: string, image: string) {
         const data = {
-            id, 
+            id,
             name,
             image
         }
-        
+
         try {
             const { team } = await PokeService.pokemonTeam()
-            if(team.length > 4){
+            if (team.length > 4) {
                 alert("O time já possui o máximo de 5 Pokémon")
                 return
             }
@@ -47,7 +41,7 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
                     return;
                 }
             }
-    
+
             if (!id || !name.trim()) {
                 alert("Erro na requisição para adicionar pokémon");
                 return;
@@ -57,13 +51,13 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
         } catch (error) {
             console.log('Ocorreu um erro ao adicionar pokémon:', error);
         }
-    } 
+    }
 
-    async function handleRemovePokemon(id: number){
+    async function handleRemovePokemon(id: number) {
         try {
             await PokeService.removePokemonFromTeam(id)
             alert('Pokémon removido do time')
-        } catch(error){
+        } catch (error) {
             console.log('Ocorreu um erro ao remover pokémon:', error);
 
         }
@@ -73,7 +67,7 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
         <div>
             <h1>Lista de Pokémons</h1>
             <div className="poke-list">
-                {loading ? <p>Loading...</p> : (
+                {data.length === 0 ? <p>Loading...</p> : (
                     data.map((pokemon: IPokemon, index: number) => (
                         <div className="poke-card" key={index}>
                             <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
