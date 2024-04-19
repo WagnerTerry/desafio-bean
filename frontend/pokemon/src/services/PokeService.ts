@@ -31,12 +31,12 @@ export default class PokeService {
   };
 
   static pokemonTeam = async () => {
-    const { data } = await axios.get(`${BaseURLHasura}/myteam`);
+    const { data } = await axios.get(`${BaseURLHasura}/team`);
     return data;
   };
 
   static getPokemonById = async (id: number) => {
-    const { data } = await axios.get(`${BaseURLHasura}/myteam/${id}`);
+    const { data } = await axios.get(`${BaseURLHasura}/team/${id}`);
     return data;
   };
 
@@ -46,7 +46,7 @@ export default class PokeService {
   };
 
   static removePokemonFromTeam = async (id: number) => {
-    const { data } = await axios.delete(`${BaseURLHasura}/myteam/${id}`);
+    const { data } = await axios.delete(`${BaseURLHasura}/team/${id}`);
     return data;
   };
 }
