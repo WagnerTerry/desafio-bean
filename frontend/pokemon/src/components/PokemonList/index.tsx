@@ -88,7 +88,7 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
                 {data.length === 0 ? (
                     <p>Carregando...</p>
                 ) : (
-                    filteredData.map((pokemon: IPokemon, index: number) => (
+                    filteredData.length > 0 ? filteredData.map((pokemon: IPokemon, index: number) => (
                         <div className="poke-card" key={index}>
                             <img
                                 src={pokemon.sprites.other.dream_world.front_default}
@@ -116,7 +116,7 @@ export function PokemonList({ data }: PokemonListProps): JSX.Element {
                                 Remover
                             </button>
                         </div>
-                    ))
+                    )) : <p>Nenhum pokémon encontrado</p>
                 )}
             </div>
         </div>
