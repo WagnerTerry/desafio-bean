@@ -9,6 +9,12 @@ O intuito desse desafio é construir uma pokedex rodando em docker. Para consumi
 ![tela-splash](https://github.com/WagnerTerry/NLW-UNITE_React_Native/blob/main/assets/readmeImages/splash.png)
 <img src="https://github.com/WagnerTerry/NLW-UNITE_React_Native/blob/main/assets/readmeImages/ticket.jpeg" alt="ingresso" width="390px">
 
+## Vídeo do projeto
+
+```
+https://youtu.be/-8puUqzLejw
+```
+
 ## 💻 Executando projeto
 
 - Necessário ter o docker instalado na sua máquina.
