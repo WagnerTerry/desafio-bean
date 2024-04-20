@@ -1,6 +1,6 @@
 # 🚀 Desafio Bean Software
 
-O intuito desse desafio é construir uma pokedex rodando em docker. Para consumir as informações foram usadas Axios, Hasura com GraphQL e o banco Postgres.
+O intuito desse desafio é construir uma pokedex em docker. Para consumir as informações foram usadas Axios, Hasura com GraphQL e o banco Postgres. Pode ser executado em formato web e mobile ( responsivo ).
 
 ## 🔦 Amostras do projeto
 
