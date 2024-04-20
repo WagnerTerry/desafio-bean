@@ -11,11 +11,126 @@ O intuito desse desafio é construir uma pokedex rodando em docker. Para consumi
 
 ## 💻 Executando projeto
 
+- Necessário ter o docker instalado na sua máquina.
+  
 Na raiz do projeto execute o comando:
 
 ```
 docker compose up -d
 ```
+### Hasura GraphQL
+
+- ATENÇÃO: Necessário configurar o Hasura com GraphQL para salvar os pokemons no banco postgres, siga esses passos, ou veja o vídeo mostrando a configuração:
+
+#### Conexão Hasura com Postgres
+
+1) Abra uma nova aba e digite
+
+```
+http://localhost:8080/console
+```
+2) Dentro do console clique na guia DATA
+   
+4) HASURA_GRAPHQL_METADATA_DATABASE_URL
+5) Clique no database, depois na pasta public e clique no botão criar tabela
+6) A tabela irá conter 3 colunas com os dados:
+   - id: Int
+   - name: Text
+   - image: Text
+     
+#### Criação dos endpoints
+
+#### - GET poke/team
+
+1) Clique na guia API
+2) Depois clique na guia REST
+3) Clique em Create Rest
+4) Vamos criar a rota para buscar todos os pokemons salvos no banco ( no caso do seu time )
+5) Digite a query comando no editor GraphQL Request:
+   
+```
+query poke {
+  team {
+    id
+    name
+    image
+  }
+}
+```
+6) Em URL PATH, coloque:
+
+```
+poke/team
+```
+7) Marque o Method GET
+   
+   
+#### - GET poke/team/:id
+
+1) Repita o processo anterior até o editor GraphQL Request:
+2) Digite a query:
+
+```
+query team_by_pk($id: Int!) {
+  team_by_pk(id: $id) {
+    id
+    image
+    name
+  }
+}
+```
+
+3) Em URL PATH, coloque:
+
+```
+poke/team/:id
+```
+4) Marque o Method GET
+
+
+#### - POST poke/addpokemon
+
+1) Repita o processo anterior até o editor GraphQL Request:
+2) Digite a query:
+
+```
+mutation addPokemon($id: Int!, $name: String!, $image: String){
+  insert_team_one(object: {id: $id, name: $name, image: $image}) {
+    id,
+    name,
+    image
+  }
+}
+```
+
+3) Em URL PATH, coloque:
+
+```
+poke/addpokemon
+```
+4) Marque o Method POST
+
+#### - DELETE poke/team/:id
+
+1) Repita o processo anterior até o editor GraphQL Request:
+2) Digite a query:
+
+```
+mutation delete_team_by_pk($id: Int!) {
+  delete_team_by_pk(id: $id) {
+    id
+    image
+    name
+  }
+}
+```
+
+3) Em URL PATH, coloque:
+
+```
+poke/team/:id
+```
+4) Marque o Method DELETE
 
 
 ## 🛠️ Tecnologias
