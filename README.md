@@ -27,7 +27,7 @@ docker compose up -d
 ```
 ### Hasura GraphQL
 
-- ATENÇÃO: Necessário configurar o Hasura com GraphQL para salvar os pokemons no banco postgres, siga esses passos, ou veja o vídeo mostrando a configuração:
+- ATENÇÃO: Necessário configurar o Hasura com GraphQL para salvar os pokemons no banco postgres, siga esses passos:
 
 #### Conexão Hasura com Postgres
 
@@ -58,6 +58,8 @@ HASURA_GRAPHQL_METADATA_DATABASE_URL
    - id: Int
    - name: Text
    - image: Text
+
+11) Marque id para ser a chave primária ( Primary Key )
      
 #### Criação dos endpoints
 
