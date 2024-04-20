@@ -184,6 +184,13 @@ npm install axios
 - https://hasura.io/docs/latest/getting-started/docker-simple/
 
 ### comandos docker
+
+Para interromper a execução digite:
+
+```
+docker compose down
+```
+
 Build da imagem com a tag/nome (vite-react-app)
 - docker build -t vite-react-app:latest .
 
