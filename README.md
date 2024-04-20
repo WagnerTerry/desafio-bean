@@ -37,10 +37,24 @@ docker compose up -d
 http://localhost:8080/console
 ```
 2) Dentro do console clique na guia DATA
-   
-4) HASURA_GRAPHQL_METADATA_DATABASE_URL
-5) Clique no database, depois na pasta public e clique no botão criar tabela
-6) A tabela irá conter 3 colunas com os dados:
+3) Clique no botão Connect Database
+4) Escolha o banco Postgres e clique em Connect Existing Database
+5) em "Database name" digite:
+
+```
+pokemon
+```
+
+6) em "Connect Database via" marque : "Environment variable"
+7) Digite no campo "Environment variable":
+
+```
+HASURA_GRAPHQL_METADATA_DATABASE_URL
+```
+
+8) Clique em Connect Database
+9) Clique no database, depois na pasta public e clique no botão criar tabela
+10) A tabela irá conter 3 colunas com os dados:
    - id: Int
    - name: Text
    - image: Text
