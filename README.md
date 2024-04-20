@@ -174,6 +174,6 @@ Build da imagem com a tag/nome (vite-react-app)
 Filtrar e exibir informações sobre imagens Docker que tenham "vite-react-app" em seu nome.
 - docker images | grep vite-react-app
 
-Rodando docker
+Rodando docker para desenvolvimento
 - docker run -p 8082:8082 vite-react-app:latest
 
